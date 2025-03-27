@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#252525"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Registration">
+    tools:context=".HW2.Registration">
 
     <EditText
         android:id="@+id/et_name"
@@ -16,6 +17,8 @@
         android:layout_margin="20dp"
         android:ems="10"
         android:hint="Name"
+        android:textColorHint="@color/white_gray"
+        android:textColor="@color/white_gray"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +31,8 @@
         android:ems="10"
         android:hint="Email"
         android:layout_margin="20dp"
-        android:inputType="textPersonName"
+        android:textColorHint="@color/white_gray"
+        android:textColor="@color/white_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_name" />
@@ -41,6 +45,8 @@
         android:hint="Password"
         android:layout_margin="20dp"
         android:inputType="textPersonName"
+        android:textColorHint="@color/white_gray"
+        android:textColor="@color/white_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_email" />
@@ -50,6 +56,8 @@
         android:layout_width="276dp"
         android:layout_height="50dp"
         android:text="Send"
+        android:textColor="@color/white_gray"
+        android:backgroundTint="@color/black"
         android:layout_margin="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

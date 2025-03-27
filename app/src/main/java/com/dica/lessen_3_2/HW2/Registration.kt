@@ -1,4 +1,4 @@
-package com.dica.lessen_3_2
+package com.dica.lessen_3_2.HW2
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -41,6 +41,7 @@ android {
         //noinspection DataBindingWithoutKapt
         dataBinding = true
     }
+
 }
 
 dependencies {
@@ -55,7 +56,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    /*circle indicator*/
+    implementation (libs.circleindicator)
 
+    implementation (libs.lottie)
 
 
     implementation(libs.androidx.navigation.fragment.ktx)
