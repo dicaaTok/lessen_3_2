@@ -3,35 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/registration">
+    app:startDestination="@id/onBoardFragment">
 
     <fragment
-        android:id="@+id/registration"
-        android:name="com.dica.lessen_3_2.HW2.Registration"
-        android:label="fragment_registration"
-        tools:layout="@layout/fragment_registration" >
+        android:id="@+id/noteFragment"
+        android:name="com.ui.fragments.note.NoteFragment"
+        android:label="fragment_note"
+        tools:layout="@layout/fragment_note" >
         <action
-            android:id="@+id/action_registration_to_details"
-            app:destination="@id/details" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/details"
-        android:name="com.dica.lessen_3_2.HW2.Detail"
-        android:label="fragment_details"
-        tools:layout="@layout/fragment_detail" >
-        <argument
-            android:name="user"
-            app:argType="com.dica.lessen_3_2.HW2.User" />
+            android:id="@+id/action_noteFragment_to_noteDetailFragment"
+            app:destination="@id/noteDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/onboard"
-        android:name="com.dica.lessen_3_2.HW3.Onboard"
-        android:label="fragment_onboard"
-        tools:layout="@layout/fragment_onboard" >
+        android:id="@+id/onBoardFragment"
+        android:name="com.ui.fragments.onboard.OnBoardFragment"
+        android:label="fragment_on_board"
+        tools:layout="@layout/fragment_on_board" >
         <action
-            android:id="@+id/action_onboard_to_registration"
-            app:destination="@id/registration" />
+            android:id="@+id/action_onBoardFragment_to_noteFragment"
+            app:destination="@id/noteFragment" />
     </fragment>
-
+    <fragment
+        android:id="@+id/noteDetailFragment"
+        android:name="com.ui.fragments.note.NoteDetailFragment"
+        android:label="fragment_note_detail"
+        tools:layout="@layout/fragment_note_detail" />
 </navigation>
