@@ -35,7 +35,6 @@
         android:gravity="top"
         android:padding="8dp"
         android:textColorHint="@color/white"
-        android:textColor="@android:color/white"
         android:textSize="16sp" />
 
     <ImageView
