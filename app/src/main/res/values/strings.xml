@@ -2,4 +2,6 @@
     <string name="app_name">lessen_3_2</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="web_client_id">544692371717-m8q7h27c84o3tamba9kk1bsv8jtahdlh.apps.googleusercontent.com</string>
+    <string name="default_web_client_id">a3:f1:12:e2:c3:7c:1a:ae:cf:66:4f:a2:5c:42:4b:c4:89:d5:a4:32</string>
 </resources>

@@ -7,19 +7,32 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.data.models.NoteModel
 import com.dica.lessen_3_2.databinding.ItemNoteBinding
+import com.ui.intetface.OnClickItem
 
 
-class NoteAdapter : ListAdapter<NoteModel, NoteAdapter.ViewHolder>(DiffCallback()) {
+class NoteAdapter(
+    private val onLongClick: OnClickItem,
+    private val onClick: OnClickItem
+) : ListAdapter<NoteModel, NoteAdapter.ViewHolder>(DiffCallback()) {
     class ViewHolder (private val binding: ItemNoteBinding) : RecyclerView.ViewHolder(binding.root){
         fun onBind(item: NoteModel) {
             binding.txtName.text = item.title
             binding.txtAbout.text = item.description
             binding.tvData.text = item.date
+            itemView.setBackgroundColor(item.color)
         }
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.onBind(getItem(position))
+
+        holder.itemView.setOnLongClickListener {
+            onLongClick.OnLongClick(getItem(position))
+            true
+        }
+        holder.itemView.setOnClickListener {
+            onClick.onClick(getItem(position))
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.ui.fragments.signin.AuthFragment"
+    android:background="#252525">
+
+
+    <TextView
+        android:id="@+id/tv_big_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="76dp"
+        android:text="Notes"
+        android:textColor="@color/white_gray"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/lottieAnimation"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="125dp"
+        android:src="@drawable/logo"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Авторизация"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="450dp"/>
+
+
+
+    <ImageView
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:src="@drawable/logo"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="556dp">
+
+    </ImageView>
+    <androidx.constraintlayout.utils.widget.MotionButton
+        android:id="@+id/btn_auth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn"
+        android:text="             Sign in with Google"
+        android:textSize="18sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="550dp"/>
+
+
+
+
+
+</FrameLayout>

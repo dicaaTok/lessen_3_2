@@ -5,7 +5,7 @@ import com.data.db.daos.NoteDao
 import com.data.models.NoteModel
 
 
-@Database(entities = [NoteModel::class], version = 1)
+@Database(entities = [NoteModel::class], version = 3)
 abstract class AppDataBase: RoomDatabase() {
     abstract fun noteDao(): NoteDao
 

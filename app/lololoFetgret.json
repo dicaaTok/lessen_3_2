@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "286815064848",
+    "project_id": "lessen-3-2",
+    "storage_bucket": "lessen-3-2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:286815064848:android:56eda819fa5fa45c984b95",
+        "android_client_info": {
+          "package_name": "com.dica.lessen_3_2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCS3MGEF6rg7Apsa3Hj10PNxDBpmoKCgCg",
+
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
