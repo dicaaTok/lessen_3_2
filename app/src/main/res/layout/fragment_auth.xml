@@ -3,9 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#252525"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.ui.fragments.signin.AuthFragment"
-    android:background="#252525">
+    tools:context="com.ui.fragments.signin.AuthFragment">
+
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_marginTop="140dp"
+            android:layout_gravity="center_horizontal"
+            android:text="****"
+            android:textColor="@color/white"
+            android:textSize="50sp"
+            android:layout_height="60dp"
+            android:layout_width="90dp"
+            />
+
 
 
     <TextView
@@ -13,53 +26,117 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="76dp"
-        android:text="Notes"
+        android:layout_marginTop="60dp"
+        android:text="ZamanBank"
         android:textColor="@color/white_gray"
         android:textSize="25sp"
         android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/lottieAnimation"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="125dp"
-        android:src="@drawable/logo"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"/>
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Авторизация"
+        android:text="Вход"
         android:textColor="#FFFFFF"
         android:textSize="22sp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="450dp"/>
+        android:layout_marginTop="100dp"/>
 
-
-
-    <ImageView
-        android:layout_width="34dp"
-        android:layout_height="34dp"
-        android:src="@drawable/logo"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="556dp">
-
-    </ImageView>
-    <androidx.constraintlayout.utils.widget.MotionButton
-        android:id="@+id/btn_auth"
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn"
-        android:text="             Sign in with Google"
-        android:textSize="18sp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="550dp"/>
+        android:layout_marginTop="300dp"
+        android:layout_gravity="center_horizontal">
 
+        <LinearLayout
+            android:id="@+id/firstRow"
+            style="@style/HorizontalLinearLayoutStyle"
+            android:orientation="horizontal">
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/one"
+                android:text="1"
+                style="@style/DigitButtonStyle"
+                />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/two"
+                android:text="2"
+                style="@style/DigitButtonStyle"
+                />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/three"
+                android:text="3"
+                style="@style/DigitButtonStyle"
+                />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/secondRow"
+            style="@style/HorizontalLinearLayoutStyle">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/four"
+                android:text="4"
+                style="@style/DigitButtonStyle"
+                />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/five"
+                android:text="5"
+                style="@style/DigitButtonStyle"
+                />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/six"
+                android:text="6"
+                style="@style/DigitButtonStyle"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/thirdRow"
+            style="@style/HorizontalLinearLayoutStyle">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/seven"
+                android:text="7"
+                style="@style/DigitButtonStyle"
+                />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/eight"
+                android:text="8"
+                style="@style/DigitButtonStyle"
+                />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/nine"
+                android:text="9"
+                style="@style/DigitButtonStyle"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/fourthRow"
+            style="@style/HorizontalLinearLayoutStyle">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/ooooo"
+                style="@style/DigitButtonStyle"
+                />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/zero"
+                android:text="0"
+                style="@style/DigitButtonStyle"
+                />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/erase"
+                android:text="+"
+                style="@style/DigitButtonStyle"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </FrameLayout>
+
+
+

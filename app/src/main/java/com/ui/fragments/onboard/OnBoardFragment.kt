@@ -35,7 +35,7 @@ class OnBoardFragment : Fragment() {
         sharedPreferences.init(requireContext())
 
         if (sharedPreferences.isOnBoardingCompleted()) {
-            findNavController().navigate(R.id.action_onBoardFragment_to_singUpFragment)
+            findNavController().navigate(R.id.action_onBoardFragment_to_authFragment2)
         } else {
             initialize()
             setupListener()
@@ -68,7 +68,7 @@ class OnBoardFragment : Fragment() {
 
         binding.btnStart.setOnClickListener {
             sharedPreferences.setOnBoardingCompleted(true)
-            findNavController().navigate(R.id.action_onBoardFragment_to_singUpFragment)
+            findNavController().navigate(R.id.action_onBoardFragment_to_authFragment2)
         }
     }
 

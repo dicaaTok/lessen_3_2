@@ -31,22 +31,32 @@ class OnBoardPagingFragment : Fragment() {
     private fun initialize() = with(binding) {
         when (requireArguments().getInt(ARG_ONBOARD_POSITION)) {
             0 -> {
-                lottieAnimation.setAnimation(R.raw.anim1)
-                txtNotes.text = "Notes"
-                txtTitle.text = "Удобство"
-                txtDescription.text = "Создавайте заметки в два клика! Записывайте мысли, идеи и важные задачи мгновенно."
+                lottieAnimation.setAnimation(R.raw.anim_hi)
+                txtNotes.text = "ZamanBank"
+                txtTitle.text = "Приветствие"
+                txtDescription.text = "\uD83D\uDC4B Добро пожаловать в ZamanBank\n" +
+                        "Банк нового времени — просто, быстро, по-человечески.\n"
             }
             1 -> {
-                lottieAnimation.setAnimation(R.raw.anim2)
-                txtNotes.text = "Notes"
-                txtTitle.text = "Организация"
-                txtDescription.text = "Организуйте заметки по папкам и тегам. Легко находите нужную информацию в любое время."
+                lottieAnimation.setAnimation(R.raw.anim_2)
+                txtNotes.text = "ZamanBank"
+                txtTitle.text = "\uD83E\uDDE9 Удобный интерфейс"
+                txtDescription.text = "Минималистичный дизайн, понятная структура, никаких лишних шагов. Вы легко найдёте нужное — даже если открыли приложение впервые.\n" +
+                        "\n" +
+                        "⚡ Быстрые переводы\n" +
+                        "Деньги — за секунды.\n" +
+                        "Мгновенные переводы между картами и счетами. Без ожиданий, без комиссий, без сложностей.\n" +
+                        "\n" +
+                        "\uD83D\uDC65 Доверительный кредит от друзей\n" +
+                        "Финансовая поддержка — ближе, чем кажется.\n" +
+                        "Запросите кредит у друзей напрямую через ZamanBank. Прозрачно, безопасно, с гибкими условиями. Мы просто помогаем вам договориться.\n"
             }
             2 -> {
-                lottieAnimation.setAnimation(R.raw.anim3)
-                txtNotes.text = "Notes"
-                txtTitle.text = "Синхронизация"
-                txtDescription.text = "Синхронизация на всех устройствах. Доступ к записям в любое время и в любом месте."
+                lottieAnimation.setAnimation(R.raw.anim)
+                txtNotes.text = "ZamanBank"
+                txtTitle.text = "Добро пожаловать"
+                txtDescription.text = "\uD83D\uDD12 Вход в ZamanBank\n" +
+                        "Доступ к вашим финансам — в пару шагов.\n"
             }
         }
 

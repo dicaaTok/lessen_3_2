@@ -3,42 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/onBoardFragment">
+    app:startDestination="@id/onBoardPagingFragment">
 
-    <fragment
-        android:id="@+id/noteFragment"
-        android:name="com.ui.fragments.note.NoteFragment"
-        android:label="fragment_note"
-        tools:layout="@layout/fragment_note">
-        <action
-            android:id="@+id/action_noteFragment_to_noteDetailFragment"
-            app:destination="@id/noteDetailFragment" />
-    </fragment>
     <fragment
         android:id="@+id/onBoardFragment"
         android:name="com.ui.fragments.onboard.OnBoardFragment"
         android:label="fragment_on_board"
         tools:layout="@layout/fragment_on_board">
+
+
         <action
-            android:id="@+id/action_onBoardFragment_to_authFragment"
-            app:destination="@id/singUpFragment" />
+            android:id="@+id/action_onBoardFragment_to_authFragment2"
+            app:destination="@id/authFragment" />
     </fragment>
+
     <fragment
-        android:id="@+id/noteDetailFragment"
-        android:name="com.ui.fragments.note.NoteDetailFragment"
-        android:label="fragment_note_detail"
-        tools:layout="@layout/fragment_note_detail" >
-        <argument
-            android:name="noteId"
-            app:argType="integer" />
-    </fragment>
+        android:id="@+id/homeFragment2"
+        android:name="com.ui.fragments.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/singUpFragment"
+        android:id="@+id/authFragment"
         android:name="com.ui.fragments.signin.AuthFragment"
-        android:label="fragment_sing_up"
-        tools:layout="@layout/fragment_sing_up" >
+        android:label="fragment_auth"
+        tools:layout="@layout/fragment_auth" >
         <action
-            android:id="@+id/action_authFragment_to_noteFragment"
-            app:destination="@id/noteFragment" />
+            android:id="@+id/action_authFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/onBoardPagingFragment"
+        android:name="com.ui.fragments.onboard.OnBoardPagingFragment"
+        android:label="fragment_on_board_paging"
+        tools:layout="@layout/fragment_on_board_paging" >
+        <action
+            android:id="@+id/action_onBoardPagingFragment_to_authFragment"
+            app:destination="@id/authFragment" />
     </fragment>
 </navigation>

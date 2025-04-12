@@ -1,106 +1,74 @@
 package com.ui.fragments.signin
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.dica.lessen_3_2.R
-import com.dica.lessen_3_2.databinding.FragmentAuthBinding
-import com.dica.lessen_3_2.databinding.FragmentSingUpBinding
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
-import com.google.firebase.Firebase
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.auth.auth
-import com.utils.PreferenceHelper
+import com.google.android.material.button.MaterialButton
 
+class AuthFragment : Fragment(R.layout.fragment_auth) {
 
-class AuthFragment : Fragment() {
-
-    private lateinit var binding: FragmentSingUpBinding
-    private lateinit var auth: FirebaseAuth
-    private lateinit var googleSignInClient: GoogleSignInClient
-    private val preferenceHelper = PreferenceHelper()
-
-    private val singInLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == Activity.RESULT_OK) {
-            val data: Intent? = result.data
-            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            try {
-                val account = task.getResult(ApiException::class.java)
-                firebaseAuthWithGoogle(account.idToken)
-            } catch (e: ApiException) {
-                updateUI(null)
-            }
-        }
-    }
-
-
-
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
-        binding = FragmentSingUpBinding.inflate(inflater, container, false)
-        auth = Firebase.auth
-        preferenceHelper.init(requireContext())
-
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.web_client_id))
-            .requestEmail()
-            .build()
-        googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
-
-        return binding.root
-    }
+    private lateinit var resultText: TextView
+    private lateinit var eraseButton: MaterialButton
+    private val correctPassword = "1234"
+    private var enteredCode = ""
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        checkRegistrationStatus()
-        setupClickListener()
-    }
-    private fun checkRegistrationStatus() {
-        if (preferenceHelper.isRegistered()) {
-            findNavController().navigate(R.id.noteFragment)
-        }
-    }
 
-    private fun setupClickListener() {
-        binding.btnSign.setOnClickListener {
-            val signInIntent = googleSignInClient.signInIntent
-            singInLauncher.launch(signInIntent)
-            Log.d("shamal", "setupClickListener:")
-        }
-    }
-    private fun firebaseAuthWithGoogle(idToken: String?) {
-        val credential = GoogleAuthProvider.getCredential(idToken, null)
-        auth.signInWithCredential(credential)
-            .addOnCompleteListener(requireActivity()) { task ->
-                if (task.isSuccessful) {
-                    val user = auth.currentUser
-                    preferenceHelper.setRegistered(true)
-                    updateUI(user)
-                } else {
-                    updateUI(null)
+        resultText = view.findViewById(R.id.result)
+        eraseButton = view.findViewById(R.id.erase)
+
+        val buttonIds = listOf(
+            R.id.zero, R.id.one, R.id.two, R.id.three,
+            R.id.four, R.id.five, R.id.six,
+            R.id.seven, R.id.eight, R.id.nine
+        )
+
+        buttonIds.forEach { id ->
+            view.findViewById<MaterialButton>(id).setOnClickListener {
+                val digit = (it as MaterialButton).text.toString()
+                if (enteredCode.length < 4) {
+                    enteredCode += digit
+                    updateResult()
+                }
+
+                if (enteredCode.length == 4) {
+                    if (enteredCode == correctPassword) {
+                        findNavController().navigate(R.id.action_authFragment_to_homeFragment2)
+                    }
+                    else {
+                        Toast.makeText(requireContext(), "Неверный пароль", Toast.LENGTH_SHORT).show()
+                        enteredCode = ""
+                        updateResult()
+                    }
                 }
             }
+        }
+
+        eraseButton.setOnClickListener {
+            if (enteredCode.isNotEmpty()) {
+                enteredCode = enteredCode.dropLast(1)
+                updateResult()
+            }
+        }
+
+        updateResult()
     }
 
-    private fun updateUI(user: FirebaseUser?) {
-        if (user != null) {
-            findNavController().navigate(R.id.noteFragment)
-        } else {
-            Toast.makeText(requireContext(), "Аутенфикация не удалась", Toast.LENGTH_SHORT).show()
-        }
+    private fun updateResult() {
+        resultText.text = enteredCode.padEnd(4, '*')
+
+        // Обновляем цвет кнопки "erase"
+        eraseButton.setBackgroundColor(
+            if (enteredCode.isNotEmpty())
+                ContextCompat.getColor(requireContext(), R.color.orange)
+            else
+                ContextCompat.getColor(requireContext(), R.color.gray)
+        )
     }
 }

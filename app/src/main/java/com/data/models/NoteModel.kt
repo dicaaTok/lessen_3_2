@@ -3,6 +3,9 @@ package com.data.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 @Entity(tableName = "noteModel")
 data class NoteModel(
